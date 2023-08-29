@@ -2,6 +2,7 @@ commands = [
     {
         "type": 1,
         "name": "hi",
+        "description": "Say hi to someone",
         "options": [
             {
                 "name": "user",
@@ -14,6 +15,7 @@ commands = [
     {
         "type": 1,
         "name": "bye",
+        "description": "Say bye to someone",
         "options": [
             {
                 "name": "user",
@@ -24,17 +26,10 @@ commands = [
         ],
     },
 ]
-import config, aiohttp, asyncio
+import config, requests
 
-async def main():
-    for c in commands:
-        async with aiohttp.ClientSession() as session:
-            async with session.put(
-                f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands",
-                headers={"Authorization": f"Bot {config.TOKEN}"},
-                json=c,
-            ) as response:
-                print("Resgistered command", c["name"])
+for c in commands:
+    headers = {"Authorization": f"Bot {config.TOKEN}"}
 
-if __name__ == "__main__":
-    asyncio.run(main())
+    r = requests.post(f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands", headers=headers, json=c)
+    print(r.json())
