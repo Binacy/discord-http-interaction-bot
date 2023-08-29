@@ -30,7 +30,7 @@ async def main():
     for c in commands:
         async with aiohttp.ClientSession() as session:
             async with session.put(
-                f"https://discord.com/api/v8/applications/{config.APPLICATION_ID}/commands",
+                f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands",
                 headers={"Authorization": f"Bot {config.TOKEN}"},
                 json=c,
             ) as response:
