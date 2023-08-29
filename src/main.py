@@ -7,7 +7,7 @@ CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
 
 app = Flask(__name__)
 
-@app.route('/interactions', methods=['POST'])
+@app.route('/', methods=['POST'])
 @verify_key_decorator(CLIENT_PUBLIC_KEY)
 def interactions():
     if request.json['type'] == InteractionType.APPLICATION_COMMAND:
