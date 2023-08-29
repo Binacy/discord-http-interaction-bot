@@ -1,5 +1,5 @@
 from .commands import *
-import aiohttp, config
+import aiohttp, config, asyncio
 
 #NOTE: This file is for uploading commands to discord, please run this file before running main.py
 
@@ -12,3 +12,6 @@ async def main():
                 json=c,
             ) as response:
                 print("Resgistered command", c["name"])
+
+if __name__ == "__main__":
+    asyncio.run(main())
