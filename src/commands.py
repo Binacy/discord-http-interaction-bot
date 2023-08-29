@@ -26,10 +26,20 @@ commands = [
         ],
     },
 ]
-import config, requests
 
-for c in commands:
-    headers = {"Authorization": f"Bot {config.TOKEN}"}
+import config, asyncio, aiohttp
 
-    r = requests.post(f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands", headers=headers, json=c)
-    print(r.json())
+
+async def main():
+    for c in commands:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands",
+                headers={"Authorization": f"Bot {config.TOKEN}"},
+                json=c,
+            ) as r:
+                print(await r.json())
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
