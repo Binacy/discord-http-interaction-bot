@@ -1,5 +1,6 @@
 import config, uvicorn
 from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from starlette.middleware import Middleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key
@@ -10,12 +11,7 @@ class CustomHeaderMiddleware(BaseHTTPMiddleware):
         timestamp = request.headers['X-Signature-Timestamp']
         bomdy = await request.body()
         if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
-            return "Bad request signature", 401
-        jmson = await request.json()
-        if jmson and jmson['type'] == InteractionType.PING:
-            return {
-                'type': InteractionResponseType.PONG
-            }
+            return JSONResponse(status_code=401, content={'reason': "Bad request signature"})
         response = await call_next(request)
         return response
 
@@ -26,7 +22,10 @@ CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
 @app.post("/")
 async def interactions(request: Request):
     json_data = await request.json()
-
+    if json_data['type'] == InteractionType.PING:
+        return {
+            'type': InteractionResponseType.PONG
+        }
     if json_data["type"] == InteractionType.APPLICATION_COMMAND:
         if json_data["data"]["name"] == "hi":
             user_name = json_data["data"]["options"][0]["value"]
