@@ -1,4 +1,4 @@
-import config
+import config, uvicorn
 from fastapi import FastAPI, Request
 from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key_decorator
 
@@ -31,5 +31,4 @@ async def interactions(request: Request):
         return response_data
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=3000)
