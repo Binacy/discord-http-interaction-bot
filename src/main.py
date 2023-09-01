@@ -9,9 +9,10 @@ CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next):
     response = await call_next(request)
-    signature = response.headers['X-Signature-Ed25519']
-    timestamp = response.headers['X-Signature-Timestamp']
-    if signature is None or timestamp is None or not verify_key(request.data, signature, timestamp, CLIENT_PUBLIC_KEY):
+    signature = request.headers['X-Signature-Ed25519']
+    timestamp = request.headers['X-Signature-Timestamp']
+    bomdy = await request.body()
+    if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
         raise HTTPException(status_code=401, detail="Bad request signature")
     jmson = await request.json()
     if jmson and jmson['type'] == InteractionType.PING:
