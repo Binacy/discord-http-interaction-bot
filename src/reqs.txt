@@ -1,3 +1,2 @@
-discord-interactions
-flask
+fastapi
 requests
