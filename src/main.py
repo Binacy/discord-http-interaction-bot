@@ -1,15 +1,10 @@
 import config
 from fastapi import FastAPI, Request
-from pydantic import BaseModel
-from discord_interactions import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key_decorator
+from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key_decorator
 
 app = FastAPI()
 
 CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
-
-class InteractionData(BaseModel):
-    name: str
-    options: list
 
 @app.post("/")
 @verify_key_decorator(CLIENT_PUBLIC_KEY)
