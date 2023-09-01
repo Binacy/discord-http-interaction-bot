@@ -1,5 +1,5 @@
 import config, uvicorn
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request
 from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key
 
 app = FastAPI()
@@ -8,17 +8,17 @@ CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
 
 @app.middleware("http")
 async def add_process_time_header(request: Request, call_next):
-    response = await call_next(request)
     signature = request.headers['X-Signature-Ed25519']
     timestamp = request.headers['X-Signature-Timestamp']
     bomdy = await request.body()
     if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
-        raise HTTPException(status_code=401, detail="Bad request signature")
+        return "Bad request signature", 401
     jmson = await request.json()
     if jmson and jmson['type'] == InteractionType.PING:
         return {
             'type': InteractionResponseType.PONG
         }
+    response = await call_next(request)
     return response
 
 @app.post("/")
