@@ -1,25 +1,27 @@
 import config, uvicorn
 from fastapi import FastAPI, Request
+from starlette.middleware import Middleware
+from starlette.middleware.base import BaseHTTPMiddleware
 from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key
 
-app = FastAPI()
+class CustomHeaderMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        signature = request.headers['X-Signature-Ed25519']
+        timestamp = request.headers['X-Signature-Timestamp']
+        bomdy = await request.body()
+        if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
+            return "Bad request signature", 401
+        jmson = await request.json()
+        if jmson and jmson['type'] == InteractionType.PING:
+            return {
+                'type': InteractionResponseType.PONG
+            }
+        response = await call_next(request)
+        return response
+
+app = FastAPI(middleware=[Middleware(CustomHeaderMiddleware)])
 
 CLIENT_PUBLIC_KEY = config.CLIENT_PUBLIC_KEY
-
-@app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
-    signature = request.headers['X-Signature-Ed25519']
-    timestamp = request.headers['X-Signature-Timestamp']
-    bomdy = await request.body()
-    if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
-        return "Bad request signature", 401
-    jmson = await request.json()
-    if jmson and jmson['type'] == InteractionType.PING:
-        return {
-            'type': InteractionResponseType.PONG
-        }
-    response = await call_next(request)
-    return response
 
 @app.post("/")
 async def interactions(request: Request):
