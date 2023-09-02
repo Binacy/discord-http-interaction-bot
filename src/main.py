@@ -32,11 +32,11 @@ class CustomHeaderMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request, call_next):
         signature = request.headers["X-Signature-Ed25519"]
         timestamp = request.headers["X-Signature-Timestamp"]
-        bomdy = await get_body(request)
+        request_body = await get_body(request)
         if (
             signature is None
             or timestamp is None
-            or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY)
+            or not verify_key(request_body, signature, timestamp, CLIENT_PUBLIC_KEY)
         ):
             return Response("Bad request signature", status_code=401)
         response = await call_next(request)
