@@ -55,11 +55,11 @@ async def interactions(request: Request):
 
     elif json_data["type"] == InteractionType.APPLICATION_COMMAND:
         if json_data["data"]["name"] == "hi":
-            user_name = json_data["data"]["options"][0]["value"]
+            user_id = json_data["data"]["options"][0]["value"]
             return {
                 "type": InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
                 "data": {
-                    "content": f"Hello {user_name}",
+                    "content": f"Hello <@!{user_id}>",
                     "flags": InteractionResponseFlags.EPHEMERAL,
                 },
             }
