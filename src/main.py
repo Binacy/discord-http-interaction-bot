@@ -1,3 +1,4 @@
+
 from dotenv import load_dotenv
 import uvicorn
 import os
@@ -34,6 +35,24 @@ async def verify_signature(request,call_next):
         
         return Response("Bad request signature",status_code=401)
 
+import config, uvicorn
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+from starlette.middleware import Middleware
+from starlette.middleware.base import BaseHTTPMiddleware
+from constants import InteractionType, InteractionResponseType, InteractionResponseFlags, verify_key
+
+class CustomHeaderMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        signature = request.headers['X-Signature-Ed25519']
+        timestamp = request.headers['X-Signature-Timestamp']
+        bomdy = await request.body()
+        if signature is None or timestamp is None or not verify_key(bomdy, signature, timestamp, CLIENT_PUBLIC_KEY):
+            return JSONResponse(status_code=401, content={'reason': "Bad request signature"})
+        response = await call_next(request)
+        return response
+
+
     response = await call_next(request)
     
     return response
@@ -44,12 +63,20 @@ async def interactions(request:Request):
     
     json_data = await request.json()    
 
+
+async def interactions(request: Request):
+    json_data = await request.json()
+
     if json_data['type'] == InteractionType.PING:
         return {
             'type': InteractionResponseType.PONG
         }
+
     
     elif json_data["type"] == InteractionType.APPLICATION_COMMAND:
+
+    if json_data["type"] == InteractionType.APPLICATION_COMMAND:
+
         if json_data["data"]["name"] == "hi":
             user_name = json_data["data"]["options"][0]["value"]
             response_data = {
