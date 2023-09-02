@@ -27,18 +27,25 @@ commands = [
     },
 ]
 
-import config
+from dotenv import load_dotenv
+import os
 from requests import Request, Session
 
+load_dotenv()
+TOKEN = os.environ.get("TOKEN")
+APPLICATION_ID = os.environ.get("APPLICATION_ID")
+
 s = Session()
-s.headers.update({"Authorization": f"Bot {config.TOKEN}"})
+s.headers.update({"Authorization": f"Bot {TOKEN}"})
+
 r = s.send(
     s.prepare_request(
         Request(
             "PUT",
-            f"https://discord.com/api/v10/applications/{config.APPLICATION_ID}/commands",
+            f"https://discord.com/api/v10/applications/{APPLICATION_ID}/commands",
             json=commands,
         )
     )
 )
+
 print(f"{r.json()}")
