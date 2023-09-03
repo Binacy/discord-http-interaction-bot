@@ -35,7 +35,7 @@ Here's why:
 
 A great example is Dyno bot on discord which is using gateway and http interactions both simontaneously to save hosting resources and money. You can do the same, just with some knowledge of python, discord http interactions and some creativity.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Of course, no one will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -43,16 +43,11 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 ### Built With
 
-This section should list any major frameworks/libraries used in this project. Leave any add-ons/plugins for the acknowledgements section.
-
-* [![Fastapi][Fastapi]][fastapi-url]
+* [Fastapi](https://fastapi.tiangolo.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 1. Clone this repo on your local machine
   ```sh
@@ -63,9 +58,9 @@ To get a local copy up and running follow these simple example steps.
   pip3 install -U -r reqs.txt
   ```
 3. Create a discord application and bot on [Discord Developer Portal](https://discord.com/developers/applications)
-4. Rename the [example.env](https://github.com/gauravwtf/discord-http-interaction-bot/example.env) file to .env
+4. Rename the [example.env](https://github.com/gauravwtf/discord-http-interaction-bot/src/example.env) file to .env
 5. Complete the .env file with your bot token, application id and public key from the discord developer portal.
-6. Edit commands in [commands.py](https://github.com/gauravwtf/discord-http-interaction-bot/commands.py)
+6. Edit commands in [commands.py](https://github.com/gauravwtf/discord-http-interaction-bot/src/commands.py)
 * Note: You will have to run commands.py before main.py to upload your slash commands to discord.
 7. Run the bot
   ```sh
@@ -97,13 +92,13 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `[LICENSE](https://github.com/gauravwtf/discord-http-interaction-bot/LICENSE)` for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/gauravwtf/discord-http-interaction-bot/LICENSE) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
 
-Your Name - [@wtfgaurav](https://discord.gg/gaurav)
+Discord - [@wtfgaurav](https://discord.gg/gaurav)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,4 +118,3 @@ Special thanks to [Aditya](https://github.com/Xenofic) and [Amey](https://github
 [issues-url]: https://github.com/gauravwtf/discord-http-interaction-bot/issues
 [license-shield]: https://img.shields.io/github/license/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
 [license-url]: https://github.com/gauravwtf/discord-http-interaction-bot/LICENSE
-[fastapi-url]: https://fastapi.tiangolo.com/
