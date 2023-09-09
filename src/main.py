@@ -7,6 +7,7 @@ from utils import (
     InteractionResponseFlags,
     CustomHeaderMiddleware,
 )
+from core import CommandHandler
 
 app = FastAPI(middleware=[Middleware(CustomHeaderMiddleware)])
 
@@ -19,20 +20,19 @@ async def interactions(request: Request):
         # A ping test sent by discord to check if your server works
         return {"type": InteractionResponseType.PONG}
 
-    elif json_data["type"] == InteractionType.APPLICATION_COMMAND:
-        if json_data["data"]["name"] == "hi":
-            user_id = json_data["data"]["options"][0]["value"]
-            return {
-                "type": InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                "data": {
-                    "content": f"Hello <@!{user_id}>",
-                    "flags": InteractionResponseFlags.EPHEMERAL,
-                },
-            }
+    handler = CommandHandler(json_data)
+    result = handler.execute()
+    if result is not None:
+        return result
+    # No result means either the command is not found or the command is not registered
+    # Or you havent implemented the command yet
+    # Or you forgot to return the result
+    # Or idk just check it man i cant do everything for you
     return {
         "type": InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         "data": {
-            "content": "Hello world",
+            "content": "Hello Buddy, This is a by default message for any unrecognized interaction.",
+            "flags": InteractionResponseFlags.EPHEMERAL,
         },
     }
 
