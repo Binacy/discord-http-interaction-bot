@@ -68,6 +68,9 @@ Of course, no one will serve all projects since your needs may be different. So 
   ```
 8. Sorry, you are not done yet! you have to use a server like [ngrok](https://ngrok.com/) to start a local webserver.
 9. Please install any server like ngrok and start a local webserver on port 3000.
+  ```sh
+  ngrok http 3000
+  ```
 10. Copy the https url from the ngrok terminal and paste it in the discord developer portal in the interaction section.
 11. You are done! Now you can use your bot in any server you want.
 12. Ah! not done yet, You can use web services like vercel to host your bot 24/7 for free. You can also use heroku.
