@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-CLIENT_PUBLIC_KEY = os.getenv("CLIENT_PUBLIC_KEY")
+CLIENT_PUBLIC_KEY = os.environ.get("CLIENT_PUBLIC_KEY")
 
 
 def verify_key(
