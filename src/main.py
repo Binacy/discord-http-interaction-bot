@@ -1,8 +1,12 @@
 import uvicorn
 from fastapi import FastAPI, Request
 from starlette.middleware import Middleware
-from constants import InteractionType, InteractionResponseType, InteractionResponseFlags
-from verify import CustomHeaderMiddleware
+from utils import (
+    InteractionType,
+    InteractionResponseType,
+    InteractionResponseFlags,
+    CustomHeaderMiddleware,
+)
 
 app = FastAPI(middleware=[Middleware(CustomHeaderMiddleware)])
 
@@ -12,6 +16,7 @@ async def interactions(request: Request):
     json_data = await request.json()
 
     if json_data["type"] == InteractionType.PING:
+        # A ping test sent by discord to check if your server works
         return {"type": InteractionResponseType.PONG}
 
     elif json_data["type"] == InteractionType.APPLICATION_COMMAND:
