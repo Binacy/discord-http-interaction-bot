@@ -61,7 +61,7 @@ Of course, no one will serve all projects since your needs may be different. So 
 4. Rename the [example.env](https://github.com/gauravwtf/discord-http-interaction-bot/src/example.env) file to .env
 5. Complete the .env file with your bot token, application id and public key from the discord developer portal.
 6. Edit commands in [commands.py](https://github.com/gauravwtf/discord-http-interaction-bot/src/commands.py)
-* Note: You will have to run commands.py before main.py to upload your slash commands to discord.
+* Note: You will have to run upsert.py before main.py to upload your slash commands to discord.
 7. Run the bot
   ```sh
   python3 main.py
