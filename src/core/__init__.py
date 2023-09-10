@@ -1,1 +1,1 @@
-from command_handler import *
+from .command_handler import *
