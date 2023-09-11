@@ -23,7 +23,7 @@ class HelloCommand(SlashCommand):
         )
 
     async def respond(self, json_data: dict):
-        # This function is aync just so that fastapi supports async poggies
+        # This function is async just so that fastapi supports async poggies
         user_id = json_data["data"]["options"][0]["value"]
         return {
             "type": InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
@@ -50,7 +50,7 @@ class ByeCommand(SlashCommand):
         )
 
     async def respond(self, json_data: dict):
-        # This function is aync just so that fastapi supports async poggies
+        # This function is async just so that fastapi supports async poggies
         user_id = json_data["data"]["options"][0]["value"]
         return {
             "type": InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,

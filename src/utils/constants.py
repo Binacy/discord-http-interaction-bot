@@ -63,7 +63,7 @@ class SlashCommand:
         self.options = options or []
 
     async def respond(self, json_data: dict):
-        # This function is aync just so that fastapi supports async poggies
+        # This function is async just so that fastapi supports async poggies
         ...
 
     def to_dict(self):
