@@ -101,7 +101,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/gauravwtf/di
 
 ## Contact
 
-Discord - [@wtfgaurav](https://discord.gg/gaurav)
+Discord - [@wtfgaurav](https://discord.com/users/380697024120487939)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
