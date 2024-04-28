@@ -4,7 +4,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![MIT License][license-shield]](https://github.com/Binacy/discord-http-interaction-bot/blob/main/LICENSE)
 
 
 <br />
