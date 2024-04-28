@@ -4,7 +4,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]](https://github.com/Binacy/discord-http-interaction-bot/blob/main/LICENSE)
+[![MIT License][license-shield]][license-url]
 
 
 <br />
@@ -120,4 +120,4 @@ Special thanks to [Aditya](https://github.com/Xenofic) and [Amey](https://github
 [issues-shield]: https://img.shields.io/github/issues/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
 [issues-url]: https://github.com/Binacy/discord-http-interaction-bot/issues
 [license-shield]: https://img.shields.io/github/license/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
-[license-url]: https://github.com/Binacy/discord-http-interaction-bot/LICENSE
+[license-url]: https://github.com/Binacy/discord-http-interaction-bot/blob/main/LICENSE
