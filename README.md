@@ -58,7 +58,7 @@ Of course, no one will serve all projects since your needs may be different. So 
   pip3 install -U -r reqs.txt
   ```
 3. Create a discord application and bot on [Discord Developer Portal](https://discord.com/developers/applications)
-4. Rename the [example.env](https://github.com/Binacy/discord-http-interaction-bot/src/example.env) file to .env
+4. Rename the [example.env](https://github.com/Binacy/discord-http-interaction-bot/blob/main/src/example.env) file to .env
 5. Complete the .env file with your bot token, application id and public key from the discord developer portal.
 6. Edit commands in [commands.py](https://github.com/Binacy/discord-http-interaction-bot/blob/main/src/commands.py)
 * Note: You will have to run upsert.py before main.py to upload your slash commands to discord.
@@ -95,7 +95,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/Binacy/discord-http-interaction-bot/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/Binacy/discord-http-interaction-bot/blob/main/LICENSE) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
