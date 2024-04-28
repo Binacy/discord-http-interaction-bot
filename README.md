@@ -15,9 +15,9 @@
     An awesome open source project to demonstrate usage of discord http interactions in python!
     <br />
     ·
-    <a href="https://github.com/gauravwtf/discord-http-interaction-bot/issues">Report Bug</a>
+    <a href="https://github.com/Binacy/discord-http-interaction-bot/issues">Report Bug</a>
     ·
-    <a href="https://github.com/gauravwtf/discord-http-interaction-bot/issues">Request Feature</a>
+    <a href="https://github.com/Binacy/discord-http-interaction-bot/issues">Request Feature</a>
   </p>
 </div>
 
@@ -51,16 +51,16 @@ Of course, no one will serve all projects since your needs may be different. So 
 
 1. Clone this repo on your local machine
   ```sh
-  git clone https://github.com/gauravwtf/discord-http-interaction-bot
+  git clone https://github.com/Binacy/discord-http-interaction-bot
   ```
 2. Install the requirements (Sorry i use reqs instead of requirements)
   ```sh
   pip3 install -U -r reqs.txt
   ```
 3. Create a discord application and bot on [Discord Developer Portal](https://discord.com/developers/applications)
-4. Rename the [example.env](https://github.com/gauravwtf/discord-http-interaction-bot/src/example.env) file to .env
+4. Rename the [example.env](https://github.com/Binacy/discord-http-interaction-bot/src/example.env) file to .env
 5. Complete the .env file with your bot token, application id and public key from the discord developer portal.
-6. Edit commands in [commands.py](https://github.com/gauravwtf/discord-http-interaction-bot/src/commands.py)
+6. Edit commands in [commands.py](https://github.com/Binacy/discord-http-interaction-bot/src/commands.py)
 * Note: You will have to run upsert.py before main.py to upload your slash commands to discord.
 7. Run the bot
   ```sh
@@ -95,7 +95,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/gauravwtf/discord-http-interaction-bot/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/Binacy/discord-http-interaction-bot/LICENSE) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,13 +111,13 @@ Special thanks to [Aditya](https://github.com/Xenofic) and [Amey](https://github
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[contributors-shield]: https://img.shields.io/github/contributors/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
-[contributors-url]: https://github.com/gauravwtf/discord-http-interaction-bot/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
-[forks-url]: https://github.com/gauravwtf/discord-http-interaction-bot/network/members
-[stars-shield]: https://img.shields.io/github/stars/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
-[stars-url]: https://github.com/gauravwtf/discord-http-interaction-bot/stargazers
-[issues-shield]: https://img.shields.io/github/issues/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
-[issues-url]: https://github.com/gauravwtf/discord-http-interaction-bot/issues
-[license-shield]: https://img.shields.io/github/license/gauravwtf/discord-http-interaction-bot.svg?style=for-the-badge
-[license-url]: https://github.com/gauravwtf/discord-http-interaction-bot/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
+[contributors-url]: https://github.com/Binacy/discord-http-interaction-bot/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
+[forks-url]: https://github.com/Binacy/discord-http-interaction-bot/network/members
+[stars-shield]: https://img.shields.io/github/stars/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
+[stars-url]: https://github.com/Binacy/discord-http-interaction-bot/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
+[issues-url]: https://github.com/Binacy/discord-http-interaction-bot/issues
+[license-shield]: https://img.shields.io/github/license/Binacy/discord-http-interaction-bot.svg?style=for-the-badge
+[license-url]: https://github.com/Binacy/discord-http-interaction-bot/LICENSE
